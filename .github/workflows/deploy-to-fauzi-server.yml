@@ -8,6 +8,7 @@ on:
 
 jobs:
   deploy:
+    name: Build and Deploy to Fauzi Server
     # if branch is main, and the commit hash is not type here, then deploy
     runs-on: ubuntu-latest
 
