@@ -2,9 +2,9 @@ name: Deploy to Fauzi Server
 
 on:
   # trigger the workflow when release is created
-  push:
-    tags:
-      - '*'
+  release:
+    types: [published]
+
 
 jobs:
   deploy:
