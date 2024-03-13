@@ -1,7 +1,7 @@
 name: Deploy to Fauzi Server
 
 on:
-  # trigger the workflow when a tag push is made
+  # trigger the workflow when release is created
   push:
     tags:
       - '*'
@@ -16,7 +16,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        ref: 
+        ref: ${{ github.event.release.target_commitish }}
 
     - name: Install Dependencies
       run: npm install
