@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  astro:
+    container_name: astro
+    image: app/astro
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
