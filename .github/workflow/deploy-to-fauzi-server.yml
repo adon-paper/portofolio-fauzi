@@ -1,0 +1,35 @@
+name: Deploy to Fauzi Server
+
+on:
+  # trigger the workflow when a tag push is made
+  push:
+    tags:
+      - '*'
+
+jobs:
+  deploy:
+    # if branch is main, and the commit hash is not type here, then deploy
+    runs-on: ubuntu-latest
+
+    # checkout to the commit hash
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: 
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Astro App
+      run: npm run build
+
+    # - name: Deploy to Fauzi Server
+    #   uses: easingthemes/ssh-deploy@v2.0.0
+    #   with:
+    #     server_ip: ${{ secrets.SERVER_IP }}
+    #     server_port: ${{ secrets.SERVER_PORT }}
+    #     username: ${{ secrets.SERVER_USERNAME }}
+    #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     source: 'dist/' 
+    #     target: '/path/to/destination/on/server'
